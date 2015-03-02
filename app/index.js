@@ -4,6 +4,7 @@
     var path    = require( 'path' );
     var util    = require( 'util' );
     var path    = require( 'path' );
+    var uuid    = require( 'node-uuid' );
     var yeoman  = require( 'yeoman-generator' );
 
     // Determine packageName based on current folder name
@@ -15,12 +16,12 @@
     {
         yeoman.generators.Base.apply( this, arguments );
 
-        this.on( 'end', function( )
+        this.on( "end", function ()
         {
-            this.installDependencies(
+            if ( !this.options[ "skip-install" ] )
             {
-                skipInstall: options[ 'skip-install' ]
-            } );
+                this.installDependencies();
+            }
         } );
 
         this.pkg         = JSON.parse( this.readFileAsString( path.join( __dirname, '../package.json' ) ) );
@@ -73,6 +74,7 @@
             this.mainName           = props.mainName;
             this.authorName         = props.authorName;
             this.authorEmail        = props.authorEmail;
+            this.guid               = uuid.v4();
 
             callback();
         }.bind( this ) );
