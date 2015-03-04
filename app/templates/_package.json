@@ -7,6 +7,9 @@
     "browser": {
         "madlib-xhr": "madlib-xhr-xdm"
     },
+    "titanium": {
+        "madlib-xhr": "madlib-xhr"
+    },
     "config": {
         "blanket": {
             "loader": "./node-loaders/coffee-script"
