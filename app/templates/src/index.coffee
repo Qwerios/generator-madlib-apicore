@@ -6,6 +6,7 @@
             require "madlib-hostmapping"
             require "q"
             require "./api-settings"
+            require "./api/example/service"
         )
     else if typeof define is "function" and define.amd
         define( [
@@ -14,6 +15,7 @@
             "madlib-hostmapping"
             "q"
             "./api-settings"
+            "./example/service"
         ], factory )
 )( (\
     console
@@ -21,6 +23,7 @@
 ,   HostMapping
 ,   Q
 ,   defaultSettings
+,   ExampleService
 ) ->
 
     api =
@@ -63,8 +66,8 @@
         service
         switch serviceName
 
-            when "MyService"
-                service = new MyService()
+            when "ExampleService"
+                service = new ExampleService()
 
 
             # Unknown service call

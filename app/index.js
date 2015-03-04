@@ -84,23 +84,26 @@
     {
         // Create base folders
         //
-        this.mkdir( 'src'       );
-        this.mkdir( 'src/api'   );
-        this.mkdir( 'test'      );
-        this.mkdir( 'test/api'  );
-        this.mkdir( 'test/unit' );
+        this.mkdir( 'src'               );
+        this.mkdir( 'src/api'           );
+        this.mkdir( 'src/api/example'   );
+        this.mkdir( 'test'              );
+        this.mkdir( 'test/api'          );
+        this.mkdir( 'test/unit'         );
 
-        this.template( '_package.json',         'package.json'            );
-        this.template( 'README.md',             'README.md'               );
-        this.template( 'LICENSE',               'LICENSE'                 );
+        this.template( '_package.json',                 'package.json'            );
+        this.template( 'README.md',                     'README.md'               );
+        this.template( 'LICENSE',                       'LICENSE'                 );
 
-        this.copy( 'GruntFile.coffee',          'GruntFile.coffee'        );
-        this.copy( 'src/index.coffee',          'src/' + this._.slugify( this.mainName ) + '.coffee' );
-        this.copy( 'src/api-settings.coffee',   'src/api-settings.coffee' );
-        this.copy( 'src/api/base.coffee',       'src/api/base.coffee'     );
-        this.copy( 'test/blanket.js',           'test/blanket.js'         );
-        this.copy( 'test/api/FOLDER.md',        'test/api/FOLDER.md'      );
-        this.copy( 'test/unit/FOLDER.md',       'test/unit/FOLDER.md'     );
+        this.copy( 'GruntFile.coffee',                  'GruntFile.coffee'        );
+        this.copy( 'src/index.coffee',                  'src/' + this._.slugify( this.mainName ) + '.coffee' );
+        this.copy( 'src/api-settings.coffee',           'src/api-settings.coffee'               );
+        this.copy( 'src/api/base.coffee',               'src/api/base.coffee'                   );
+        this.copy( 'src/api/example/service.coffee',    'src/api/example/service.coffee'        );
+        this.copy( 'test/blanket.js',                   'test/blanket.js'                       );
+        this.copy( 'test/api/FOLDER.md',                'test/api/FOLDER.md'                    );
+        this.copy( 'test/api/example.coffee',           'test/api/example.coffee'               );
+        this.copy( 'test/unit/FOLDER.md',               'test/unit/FOLDER.md'                   );
     };
 
     MadlibApicoreGenerator.prototype.projectfiles = function projectfiles( )
